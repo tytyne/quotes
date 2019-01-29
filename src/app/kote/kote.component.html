@@ -1,0 +1,27 @@
+<img src="http://lh5.ggpht.com/-wZWmksjZ-Vg/TtL-O6EKIWI/AAAAAAAAAXw/HMuS27pGEDo/s1600/word_quotes.png">
+<div class="container">
+
+    <div class="row">
+        <app-kote-form (addKote)="addNewKote($event)"></app-kote-form>
+        <!-- </div> -->
+        <div class="row" *ngFor="let kote of kotes;let i = 'index'">
+
+            <h5 appStrikethrough>{{kote.name}} wtitten by {{kote.user}} -- {{kote.author}} due on {{kote.completeDate|date|uppercase}}</h5>
+            <button (click)="upvote(i)" class="btn btn-primary btn-xs">
+            <i class="up"></i>{{ kote.upvotes }}<img src="https://clipart.info/images/ccovers/1513313791facebook-circle-heart-love-png.png" height="35" width="35">
+            </button> &nbsp;&nbsp;
+            <button (click)="downvote(i)" class="btn btn-danger btn-xs">
+            <i class="down"></i>{{ kote.downvotes }} <img src="http://www.pngmart.com/files/5/Broken-Heart-PNG-Transparent-Image.png" height="35" width="35">
+            </button> &nbsp;&nbsp;
+            <app-kote-details [kote]='kote' (isComplete)='deleteKote($event,i)'></app-kote-details>
+            <!-- </div> -->
+        </div>
+
+
+    </div>
+
+    <!-- </div>
+
+</div> -->
+
+    <p *ngIf='kotes.length > 5'>You can input many quotes</p>

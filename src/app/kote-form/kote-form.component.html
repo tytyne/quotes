@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+        <form (ngSubmit)='submitKote()' #koteForm='ngForm'>
+
+            <div class="form-group">
+                <div class=" ">
+                    <label for="user">Name of writer</label>
+                    <input type="text" class="form-control" id="user" [(ngModel)]="newKote.description" name="user" #name="ngModel" required>
+
+
+                </div>
+                <br>
+                <div class=" ">
+                    <label for="name">Enter your quote</label>
+                    <textarea class="form-control" id="name" rows="4" [(ngModel)]="newKote.name" name="name" #description="ngModel" required></textarea>
+
+                </div>
+                <br>
+
+                <div class="">
+                    <label for="author">Author of the quote</label>
+                    <input type="text" class="form-control" id="author" [(ngModel)]="newKote.author" name="author" #name="ngModel" required>
+
+
+
+
+                </div>
+                <br>
+                <div class=" ">
+                    <label for="complete">Completion</label>
+                    <input type='date' id="complete" [(ngModel)]="newKote.completeDate" name="completeDate" #completeDate="ngModel" required>
+
+                </div>
+            </div>
+            <br>
+            <button type="Submit" id="hell" class="btn btn-success btn-lg">Add Quote</button>
+
+        </form>
+    </div>
+</div>
