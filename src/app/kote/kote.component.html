@@ -6,21 +6,20 @@
         <!-- </div> -->
         <div class="row" *ngFor="let kote of kotes;let i = 'index'">
 
-            <h5 appStrikethrough>{{kote.name}} written by {{kote.user}} --{{kote.author}} due on {{kote.completeDate|date|uppercase}}</h5>
             <ul>
-                <li><button (click)="upvote(i)" class="btn btn-primary btn-xs">
-    <i class="up"></i>{{ kote.upvotes }}<img src="https://clipart.info/images/ccovers/1513313791facebook-circle-heart-love-png.png"
-        height="35" width="35">
-</button></li> &nbsp;&nbsp;
-                <li> <button (click)="downvote(i)" class="btn btn-danger btn-xs">
+                <li id="listed">
+                    <h5 appStrikethrough>{{kote.name}} written by {{kote.user}} --{{kote.author}} due on {{kote.completeDate|date|uppercase}}</h5>
+                </li>
 
-    <i class="down"></i>{{ kote.downvotes }} <img src="http://www.pngmart.com/files/5/Broken-Heart-PNG-Transparent-Image.png"
-        height="35" width="35"></li>
-            </ul>
-            
+                <button (click)="upvote(i)" class="btn btn-primary btn-xs">
+            <i class="up"></i>{{ kote.upvotes }}<img src="https://clipart.info/images/ccovers/1513313791facebook-circle-heart-love-png.png" height="35" width="35">
             </button> &nbsp;&nbsp;
-                    <app-kote-details [kote]='kote' (isComplete)='deleteKote($event,i)'></app-kote-details>
-                    <!-- </div> -->
+                <button (click)="downvote(i)" class="btn btn-danger btn-xs">
+            <i class="down"></i>{{ kote.downvotes }} <img src="http://www.pngmart.com/files/5/Broken-Heart-PNG-Transparent-Image.png" height="35" width="35">
+            </button> &nbsp;&nbsp;
+                <app-kote-details [kote]='kote' (isComplete)='deleteKote($event,i)'></app-kote-details>
+                <!-- </div> -->
+            </ul>
         </div>
 
 
